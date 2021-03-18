@@ -1,6 +1,7 @@
 package com.example.Auth.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
@@ -10,7 +11,8 @@ public class User {
     private int id;
     private String username;
     private String password;
-    private String role;
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private List<Role> role;
 
     public int getId() {
         return id;
@@ -36,11 +38,11 @@ public class User {
         this.password = password;
     }
 
-    public String getRole() {
+    public List<Role> getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(List<Role> role) {
         this.role = role;
     }
 
@@ -50,7 +52,7 @@ public class User {
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", role='" + role + '\'' +
+                ", role=" + role +
                 '}';
     }
 }

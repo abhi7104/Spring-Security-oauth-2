@@ -1,5 +1,6 @@
 package com.example.Auth.Service;
 
+import com.example.Auth.Auth.AppUser;
 import com.example.Auth.Dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
